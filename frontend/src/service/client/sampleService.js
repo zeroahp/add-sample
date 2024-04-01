@@ -5,22 +5,12 @@ class SampleService {
         this.api = createApiClient(baseUrl);
     }
 
-    // async postData(data){
-    //     const config = {
-    //         headers: {
-    //           'Content-Type': 'multipart/form-data',
-    //         }
-    //       };
-    //     return (await this.api.post('/post', data, config));
-    // }
-
     async postData(formData){
         const config = {
             headers: {
               'Content-Type': 'multipart/form-data',
             }
         };
-        //cua thang Quy
         return await this.api.post('/post', objectToFormData(formData) , config);
     }
 

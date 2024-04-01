@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
 import sampleService from './service/client/sampleService';
-import UploadMultipleFile from "./helper/uploadMultipleFile";
-
+import Swal from 'sweetalert2';
+import '@sweetalert2/theme-dark/dark.css';
 function AddSimple() {
 
   
@@ -14,7 +14,7 @@ function AddSimple() {
     color: "",
     description: "",
     youAre: "Student" ,
-    thumbnail: "",
+    // thumbnail: {},
   });
 
   const handleChange = (e) => {
@@ -27,10 +27,9 @@ function AddSimple() {
 
   
   const handleChangeUploadFile = (e) => {
-    // console.log('files:', e.target.files);
     setFormData({
       ...formData,
-      thumbnail: e.target.files[0],
+      thumbnail: e.target.files,
     });    
   }
 
@@ -39,6 +38,15 @@ function AddSimple() {
     console.log('dât check:', formData); 
     // const formData = new FormData(formData); 
     sampleService.postData(formData);
+
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your create has been saved",
+      showConfirmButton: false,
+      timer: 1500
+    });
+    
   };
 
 
@@ -47,7 +55,7 @@ function AddSimple() {
       <div className="formbold-main-wrapper">
         <div className="formbold-form-wrapper">
           {/* <img src="your-image-url-here.jpg" alt="Form Image" /> */}
-          <h1>Get Simple</h1>
+          <h1 className='form-title'>CREATE SAMPLE</h1>
         
           <form onSubmit={handleSubmit}>
           <div className="formbold-input-group">
@@ -72,7 +80,7 @@ function AddSimple() {
                 id="name"
                 // value={formData.name}
                 onChange={handleChange}
-                placeholder="Enter simple name"
+                placeholder="Enter sample name"
                 className="formbold-form-input"
               />
             </div>
@@ -85,7 +93,7 @@ function AddSimple() {
                 id="category"
                 // value={formData.category}
                 onChange={handleChange}
-                placeholder="Enter simple category"
+                placeholder="Enter sample category"
                 className="formbold-form-input"
               />
             </div>
@@ -98,7 +106,7 @@ function AddSimple() {
                 id="size"
                 // value={formData.size}
                 onChange={handleChange}
-                placeholder="Enter simple size"
+                placeholder="Enter sample size"
                 className="formbold-form-input"
               />
             </div>
@@ -111,7 +119,7 @@ function AddSimple() {
                 id="color"
                 // value={formData.color}
                 onChange={handleChange}
-                placeholder="Enter simple color"
+                placeholder="Enter sample color"
                 className="formbold-form-input"
               />
             </div>

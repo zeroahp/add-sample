@@ -1,10 +1,15 @@
-const SampleDatabase  = require("../../model/database.model");
+const SampleDatabase  = require("../../model/sample.model");
 
 module.exports.index = async (req, res) => {
-    const sample = await SampleDatabase.find({
-        deleted: false,
-    })
-    res.send(sample);
+    try {
+        const sample = await SampleDatabase.find({
+            deleted: false,
+        });
+        res.send(sample);
+    } catch (error) {
+        console.error("Error occurred:", error);
+        res.status(500).send("Internal Server Error");
+    }
 }
 
 
@@ -12,10 +17,10 @@ module.exports.postSample = async (req, res) => {
     console.log("req.body", req.body);
         let sampleObject = {
             name: req.body.name,
-            // user: req.body.user,
+            user: req.body.user,
             size: req.body.size,
             color: req.body.color,
-            // thumbnail: req.body.thumbnail,
+            thumbnail: Array.isArray(req.body.thumbnail) ? req.body.thumbnail : [req.body.thumbnail],
             youAre: req.body.youAre,
             category: req.body.category,
             description: req.body.description,

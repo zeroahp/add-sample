@@ -9,7 +9,10 @@ const sampleSchema = new mongoose.Schema(
       default: "anh Pham", 
       type: String,
     },
-    thumbnail: String,
+    thumbnail: {
+      type: Array,
+      default: []
+    },
     category: String,
     youAre: String,
     description: String,
