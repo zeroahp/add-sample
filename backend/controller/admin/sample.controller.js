@@ -21,10 +21,14 @@ module.exports.postSample = async (req, res) => {
             size: req.body.size,
             color: req.body.color,
             thumbnail: Array.isArray(req.body.thumbnail) ? req.body.thumbnail : [req.body.thumbnail],
-            youAre: req.body.youAre,
+            occupation: req.body.occupation,
             category: req.body.category,
             description: req.body.description,
             createAt: new Date(),
+        }
+        
+        if (req.body.occupation === "Other") {
+            sampleObject.occupationIs = req.body.occupationIs;
         }
     console.log("sampleObject", sampleObject);
     const newSample = new SampleDatabase(sampleObject);

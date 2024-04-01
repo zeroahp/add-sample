@@ -13,12 +13,14 @@ function AddSimple() {
     size: "",
     color: "",
     description: "",
-    youAre: "Student" ,
-    // thumbnail: {},
+    occupation: "Student" ,
   });
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value
@@ -36,7 +38,6 @@ function AddSimple() {
   const handleSubmit = async (e) => { 
     e.preventDefault();
     console.log('dât check:', formData); 
-    // const formData = new FormData(formData); 
     sampleService.postData(formData);
 
     Swal.fire({
@@ -145,18 +146,29 @@ function AddSimple() {
               </label>
               <select
                 className="formbold-form-select"
-                name="youAre"
-                id="youAre"
-                // value={formData.youAre}
+                name="occupation"
+                id="occupation"
                 onChange={handleChange}
               >
                 <option value="Student">Student</option>
                 <option value="Researcher">Researcher</option>
                 <option value="Teacher">Teacher</option>
                 <option value="Professor">Professor</option>
-                <option value="Other">Other</option>
+                <option  className='other' value="Other">Other</option>
               </select>
             </div>
+            {formData.occupation === "Other" && (
+              <div className="formbold-input-group">
+                <input
+                  type="text"
+                  name="occupationIs"
+                  id="occupationIs"
+                  onChange={handleChange}
+                  placeholder="Enter other option"
+                  className="formbold-form-input"
+                />
+              </div>
+            )}
 
             <button type="submit" className="formbold-btn">Submit</button>
           </form>

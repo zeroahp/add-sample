@@ -14,7 +14,11 @@ const sampleSchema = new mongoose.Schema(
       default: []
     },
     category: String,
-    youAre: String,
+    occupation: String,
+    occupationIs: {
+      type: String,
+      default: undefined,
+    },
     description: String,
     status:{
       default: "active",
