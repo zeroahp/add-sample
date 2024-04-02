@@ -1,4 +1,4 @@
-const SampleDatabase  = require("../../model/sample.model");
+const SampleDatabase  = require("../model/sample.model");
 
 module.exports.index = async (req, res) => {
     try {
@@ -17,7 +17,7 @@ module.exports.postSample = async (req, res) => {
     console.log("req.body", req.body);
         let sampleObject = {
             name: req.body.name,
-            user: req.body.user,
+            mail: req.body.mail,
             size: req.body.size,
             color: req.body.color,
             thumbnail: Array.isArray(req.body.thumbnail) ? req.body.thumbnail : [req.body.thumbnail],
