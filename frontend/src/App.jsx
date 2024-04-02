@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AddSample from "./AddSample.jsx";
+import AddSample from "./page/AddSample";
 
 function App() {
   return (

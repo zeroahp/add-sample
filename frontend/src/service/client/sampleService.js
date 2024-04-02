@@ -11,7 +11,7 @@ class SampleService {
               'Content-Type': 'multipart/form-data',
             }
         };
-        return await this.api.post('/post', objectToFormData(formData) , config);
+        return await this.api.post('/create-sample', objectToFormData(formData) , config);
     }
 
     async getData(){

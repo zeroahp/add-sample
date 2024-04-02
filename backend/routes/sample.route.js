@@ -13,7 +13,7 @@ module.exports = function(app) {
     router.get("/", SampleController.index);
     
     router.post(
-        "/post", 
+        "/create-sample", 
         // upload.single("thumbnail"),
         upload.fields([{ name: 'thumbnail', maxCount: 8 }]),
         uploadCloundMiddleware.uploadFields,

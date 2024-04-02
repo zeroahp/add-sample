@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./style.css"
-import sampleService from './service/client/sampleService';
+import "../css/style.css"
+import sampleService from '../service/client/sampleService';
 import Swal from 'sweetalert2';
 import '@sweetalert2/theme-dark/dark.css';
 function AddSimple() {
