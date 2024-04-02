@@ -17,7 +17,7 @@ module.exports.postSample = async (req, res) => {
     console.log("req.body", req.body);
         let sampleObject = {
             name: req.body.name,
-            mail: req.body.mail,
+            email: req.body.email,
             size: req.body.size,
             color: req.body.color,
             thumbnail: Array.isArray(req.body.thumbnail) ? req.body.thumbnail : [req.body.thumbnail],

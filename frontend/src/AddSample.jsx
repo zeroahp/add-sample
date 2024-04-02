@@ -13,6 +13,7 @@ function AddSimple() {
     size: "",
     color: "",
     description: "",
+    email: "",
     occupation: "Student" ,
   });
 
@@ -138,6 +139,17 @@ function AddSimple() {
                 placeholder="Type here..."
                 className="formbold-form-input"
               ></textarea>
+            </div>
+            <div className="formbold-input-group">
+              <label htmlFor="email" className="formbold-form-label"> Email </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                onChange={handleChange}
+                placeholder="Enter your email"
+                className="formbold-form-input"
+              />
             </div>
 
             <div className="formbold-input-group">

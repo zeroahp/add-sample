@@ -5,7 +5,7 @@ const sampleSchema = new mongoose.Schema(
     name: String,
     size: String,
     color : String,
-    mail: {
+    email: {
       default: "x123@gmail.com", 
       type: String,
     },
